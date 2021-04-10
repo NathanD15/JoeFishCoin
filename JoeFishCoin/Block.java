@@ -1,28 +1,35 @@
 package JoeFishCoin;
 
-import java.security.NoSuchAlgorithmException; 
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 class Block {
    private byte[] hash;
    private byte[] previousBlockHash;
    
-   private Transaction[] transactions;
+   private ArrayList<Transaction> transactions;
    
-   Block(String h, String p, Transaction[] f) throws NoSuchAlgorithmException {
-      transactions = f;
-      hash = this.CreateBlockHash();
+   Block(String p) throws NoSuchAlgorithmException {
+      transactions = new ArrayList<Transaction>(0);
       previousBlockHash = Hash.SHA256(p);
+      hash = this.CreateBlockHash();
+   }
+
+   Block(byte[] p) throws NoSuchAlgorithmException {
+      transactions = new ArrayList<Transaction>(0);
+      previousBlockHash = p;
+      hash = this.CreateBlockHash();
    }
    
-   Block(String h, byte[] p, Transaction[]  f) throws NoSuchAlgorithmException {
+   Block(byte[] p, ArrayList<Transaction>  f) throws NoSuchAlgorithmException {
       transactions = f;
-      hash = this.CreateBlockHash();
       previousBlockHash = p;
+      hash = this.CreateBlockHash();
    }
 
    public byte[] CreateBlockHash(){
       try {
-         return Hash.SHA256( String.valueOf(transactions.get) );
+         return Hash.SHA256( this.getPreviousBlockHashString() +String.valueOf(transactions.toString() ) );
       } catch (NoSuchAlgorithmException e) {
          e.printStackTrace();
          return new byte[0] ;
@@ -46,8 +53,8 @@ class Block {
       return Hash.toString(hash);
    }
 
-   public int getData(){
-      return data;
+   public String getTransactions(){
+      return transactions.toString();
    }
 
 }

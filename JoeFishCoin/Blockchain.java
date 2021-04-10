@@ -13,19 +13,23 @@ class Blockchain {
    }
    
    private Block createFirstBlock() throws NoSuchAlgorithmException {
-      return new Block("1", "0", 1);
+      return new Block("0");
    }
    
    public Block getBlockAtIndex(int i){
-      return chain.get(i);
+      if(i<chain.size() ){
+         return chain.get(i);
+      }
+      return chain.getLast();
+
    }
 
    public Block getLatestBlock(){
       return chain.getLast();
    }
    
-   public void addBlock(String hash, int data ) throws NoSuchAlgorithmException{
-      chain.add( new Block(hash, getLatestBlock().getHash() , data) );
+   public void addBlock( ) throws NoSuchAlgorithmException{
+      chain.add( new Block(getLatestBlock().getHash()) );
    }
 
    public boolean isValid(){

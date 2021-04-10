@@ -23,8 +23,8 @@ class Blockchain {
       return chain.getLast();
    }
    
-   public void addBlock(String hast, int data ) throws NoSuchAlgorithmException{
-      chain.add( new Block("2", getLatestBlock().getHash() , 2) );
+   public void addBlock(String hash, int data ) throws NoSuchAlgorithmException{
+      chain.add( new Block(hash, getLatestBlock().getHash() , data) );
    }
 
 }

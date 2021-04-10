@@ -79,8 +79,19 @@ class Blockchain {
    }
 
    public double getBalance(String address){
-      
-         return 0;
+      double amount = 0;
+      for(int i = 0; i < chain.size(); i++){
+         for(int j = 0; j < chain.get(i).getTransactionLength(); j++){
+            if(chain.get(i).getTransaction(j).getReciever().equals(address)){
+               amount+=chain.get(i).getTransaction(j).getAmount();
+            }
+            if(chain.get(i).getTransaction(j).getSender().equals(address)){
+               amount-=chain.get(i).getTransaction(j).getAmount();
+            }
+            
+         }
+      }
+         return amount;
       
    }
 }

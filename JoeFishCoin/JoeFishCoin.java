@@ -13,9 +13,11 @@ class JoeFishCoin {
         JoeFishCoin.addTransaction("Joseph", "Connor", 115);
         JoeFishCoin.mine();
 
-        System.out.println("\n\n"+ JoeFishCoin.getBlockAtIndex(1).getTransactions());
-        System.out.println("IsValid :  "+ JoeFishCoin.isValid() + "\n\n");
-        
+        //System.out.println("\n\n"+ JoeFishCoin.getBlockAtIndex(1).getTransactions());
+        System.out.println("\n"+ "IsValid :  "+ JoeFishCoin.isValid() + "\n\n");
+        System.out.println("\n"+"Nathan :  "+ JoeFishCoin.getBalance("Nathan") );
+        System.out.println("Joseph :  "+ JoeFishCoin.getBalance("Joseph"));
+        System.out.println("Connor :  "+ JoeFishCoin.getBalance("Connor") + "\n\n");
 
     } 
     

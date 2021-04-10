@@ -71,5 +71,13 @@ class Block {
       return str;
    }
 
+   public int getTransactionLength(){
+      return transactions.size();
+   }
+
+   public Transaction getTransaction(int i){
+      return transactions.get(i);
+   }
+
 }
 

@@ -11,6 +11,7 @@ class JoeFishCoin {
 
         System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(1).getHashString() );
         System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(2).getPreviousBlockHashString() );
+        System.out.println("Valid:  " + JoeFishCoin.isValid() );
         //System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(3).getHash() );
         //System.out.println("Hash :  " + JoeFishCoin.getLatestBlock().getHash() );
     } 

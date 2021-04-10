@@ -28,5 +28,14 @@ class Blockchain {
       chain.add( new Block(hash, getLatestBlock().getHash() , data) );
    }
 
+   public boolean isValid(){
+      for(int i = 1; i < chain.size(); i++){
+         if(!chain.get(i-1).getHashString().equals(chain.get(i).getPreviousBlockHashString() ) ){
+            return false;
+         }
+      }
+
+      return true;
+   }
 }
 

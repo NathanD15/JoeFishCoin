@@ -15,6 +15,10 @@ class Block {
       
    }
    
+   public String getPreviousBlockHash(){
+      return Hash.toString(previousBlockHash);
+   }
+
    public String getHash(){
       return Hash.toString(hash);
    }

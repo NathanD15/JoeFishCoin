@@ -4,3 +4,19 @@ nav {
 
     border-style: solid;
 }
+
+body{
+    height: 800px;
+
+    background: linear-gradient(180deg, rgba(0,212,255,1) 40%, rgba(9,9,121,1) 100%);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+#Welcome{
+    font-size: 50px;
+}

@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 class Blockchain {
    private LinkedList<Block> chain;
    
+
    Blockchain() throws NoSuchAlgorithmException{
       chain = new LinkedList<Block>();
       chain.add( createFirstBlock() );

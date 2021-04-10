@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException; 
 import java.lang.Math;
  
+
 class Hash { 
     public static byte[] SHA256(String input) throws NoSuchAlgorithmException
     { 

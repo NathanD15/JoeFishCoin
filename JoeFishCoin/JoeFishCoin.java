@@ -9,9 +9,9 @@ class JoeFishCoin {
         JoeFishCoin.addBlock( "2", 2 );
         JoeFishCoin.addBlock( "3", 3 );
 
-        System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(0).getHash() );
         System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(1).getHash() );
         System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(2).getHash() );
+        System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(3).getHash() );
         System.out.println("Hash :  " + JoeFishCoin.getLatestBlock().getHash() );
     } 
     

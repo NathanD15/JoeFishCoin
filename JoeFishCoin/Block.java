@@ -12,7 +12,6 @@ class Block {
       hash = Hash.SHA256(h);
       previousBlockHash = Hash.SHA256(p);
       data = d;
-      
    }
    
    public String getPreviousBlockHash(){

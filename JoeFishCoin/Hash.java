@@ -16,7 +16,7 @@ class Hash {
     public static String toString(byte[] hash) {
     
          String h = "";
-         int bit; 
+         int bit=0; 
         for(int i = 0;i < hash.length;i++){
             bit = 0;
             for(int j = 0; j < 8; j++){

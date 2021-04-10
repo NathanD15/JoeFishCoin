@@ -15,7 +15,10 @@ class Blockchain {
       return new Block("1", "0", 1);
    }
    
-   
+   public Block getBlockAtIndex(int i){
+      return chain.get(i);
+   }
+
    public Block getLatestBlock(){
       return chain.getLast();
    }

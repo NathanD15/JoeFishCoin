@@ -1,6 +1,5 @@
 package JoeFishCoin;
 
-import java.util.LinkedList;
 import java.security.NoSuchAlgorithmException; 
 
 

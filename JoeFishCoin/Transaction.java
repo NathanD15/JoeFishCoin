@@ -11,5 +11,8 @@ public class Transaction {
         amount = a;
     }
 
+    public String toString(){
+        return sender +" "+ reciever +" "+ String.valueOf(amount);
+    }
     
 }

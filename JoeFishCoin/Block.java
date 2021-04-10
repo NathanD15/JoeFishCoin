@@ -14,14 +14,29 @@ class Block {
       data = d;
    }
    
-   public String getPreviousBlockHash(){
+   Block(String h, byte[] p, int d) throws NoSuchAlgorithmException {
+      hash = Hash.SHA256(h);
+      previousBlockHash = p;
+      data = d;
+   }
+
+   public byte[] getPreviousBlockHash(){
+      return previousBlockHash;
+   }
+
+   public String getPreviousBlockHashString(){
       return Hash.toString(previousBlockHash);
    }
 
-   public String getHash(){
-      return Hash.toString(hash);
+
+   public byte[] getHash(){
+      return hash;
    }
    
+   public String getHashString(){
+      return Hash.toString(hash);
+   }
+
    public int getData(){
       return data;
    }

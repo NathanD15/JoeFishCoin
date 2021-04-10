@@ -17,7 +17,6 @@ class Hash {
     public static String toString(byte[] hash) {
     
         StringBuilder builder = new StringBuilder();
-        //String h = "";
         int bit; 
         byte value;
         for(int i = 0; i < hash.length; i++){

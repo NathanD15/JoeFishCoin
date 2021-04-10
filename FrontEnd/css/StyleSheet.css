@@ -1,8 +1,9 @@
 nav {
-    border-color: black;
+    /*border-color: black;*/
     
     background: linear-gradient(170deg, #4d4d4f 50%, #666668 100%);
-    border-style: solid;
+    /*border-style: solid;
+    border-width: 1;*/
     
 }
 
@@ -16,4 +17,12 @@ body{
 
 #Welcome{
     font-size: 50px;
+}
+
+
+#navBar {
+    border-color: black;
+    border-style: dashed;
+    border-width: 3px;
+    padding: 2px;
 }

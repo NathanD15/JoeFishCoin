@@ -1,23 +1,23 @@
 package JoeFishCoin;
 
 import java.util.LinkedList;
-
+import java.security.NoSuchAlgorithmException; 
 
 class Block {
-   private /*byte[]*/String hash;
-   private /*byte[]*/String previousBlockHash;
+   private byte[] hash;
+   private byte[] previousBlockHash;
    
    private int data;
    
-   Block(String h, String p, int d) {
-      hash = h;
-      previousBlockHash = p;
+   Block(String h, String p, int d) throws NoSuchAlgorithmException {
+      hash = Hash.SHA256(h);
+      previousBlockHash = Hash.SHA256(p);
       data = d;
       
    }
    
    public String getHash(){
-      return hash;
+      return Hash.toString(hash);
    }
    
    public int getData(){

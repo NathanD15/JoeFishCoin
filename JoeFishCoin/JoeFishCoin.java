@@ -6,14 +6,17 @@ import java.security.NoSuchAlgorithmException;
 class JoeFishCoin { 
     public static void main(String args[]) throws NoSuchAlgorithmException { 
         Blockchain JoeFishCoin = new Blockchain();
-        JoeFishCoin.addBlock();
-        JoeFishCoin.addBlock();
+        JoeFishCoin.addTransaction("Nathan", "Joseph", 15);
+        JoeFishCoin.mine();
+        JoeFishCoin.addTransaction("Connor", "Nathan", 20);
+        JoeFishCoin.mine();
+        JoeFishCoin.addTransaction("Joseph", "Connor", 115);
+        JoeFishCoin.mine();
 
-        System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(1).getHashString() );
-        System.out.println("Hash :  " + Hash.toString(JoeFishCoin.getBlockAtIndex(1).CreateBlockHash()) );
-        System.out.println("Valid:  " + JoeFishCoin.isValid() );
-        //System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(3).getHash() );
-        //System.out.println("Hash :  " + JoeFishCoin.getLatestBlock().getHash() );
+        System.out.println("\n\n"+ JoeFishCoin.getBlockAtIndex(1).getTransactions());
+        System.out.println("IsValid :  "+ JoeFishCoin.isValid() + "\n\n");
+        
+
     } 
     
 }

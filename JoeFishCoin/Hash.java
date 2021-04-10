@@ -16,22 +16,23 @@ class Hash {
     
     public static String toString(byte[] hash) {
     
-         String h = "";
-         int bit; 
-         byte old;
+        StringBuilder builder = new StringBuilder();
+        //String h = "";
+        int bit; 
+        byte old;
         for(int i = 0;i < hash.length;i++){
             old = hash[i];
             bit = 0;
             for(int j = 0; j < 8; j++){
                bit = hash[i] %2;
                hash[i] /= 2;
-               h += String.format("%d", Math.abs(bit) );
+               builder.append(String.format("%d", Math.abs(bit)));
             }
             hash[i] = old;
             
         }
         
-        return h; 
+        return builder.toString(); 
     }
   
     /*public static void main(String args[])

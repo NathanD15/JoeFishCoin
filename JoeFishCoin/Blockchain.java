@@ -77,5 +77,11 @@ class Blockchain {
 
       return true;
    }
+
+   public double getBalance(String address){
+      
+         return 0;
+      
+   }
 }
 

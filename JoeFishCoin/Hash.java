@@ -19,16 +19,15 @@ class Hash {
         StringBuilder builder = new StringBuilder();
         //String h = "";
         int bit; 
-        byte old;
+        byte value;
         for(int i = 0;i < hash.length;i++){
-            old = hash[i];
+            value = hash[i];
             bit = 0;
             for(int j = 0; j < 8; j++){
-               bit = hash[i] %2;
-               hash[i] /= 2;
+               bit = value %2;
+               value /= 2;
                builder.append(String.format("%d", Math.abs(bit)));
             }
-            hash[i] = old;
             
         }
         

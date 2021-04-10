@@ -9,15 +9,24 @@ class Block {
    private int data;
    
    Block(String h, String p, int d) throws NoSuchAlgorithmException {
-      hash = Hash.SHA256(h);
-      previousBlockHash = Hash.SHA256(p);
       data = d;
+      hash = this.CreateBlockHash();
+      previousBlockHash = Hash.SHA256(p);
    }
    
    Block(String h, byte[] p, int d) throws NoSuchAlgorithmException {
-      hash = Hash.SHA256(h);
+      hash = this.CreateBlockHash();
       previousBlockHash = p;
       data = d;
+   }
+
+   public byte[] CreateBlockHash(){
+      try {
+         return Hash.SHA256( String.valueOf(data) );
+      } catch (NoSuchAlgorithmException e) {
+         e.printStackTrace();
+         return new byte[0] ;
+      }
    }
 
    public byte[] getPreviousBlockHash(){

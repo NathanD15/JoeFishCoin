@@ -29,8 +29,12 @@ class Blockchain {
    }
 
    public boolean isValid(){
-      for(int i = 1; i < chain.size(); i++){
-         if(!chain.get(i-1).getHashString().equals(chain.get(i).getPreviousBlockHashString() ) ){
+      for(int i = 0; i < chain.size()-1; i++){
+         if(!chain.get(i).getHashString().equals(Hash.toString(chain.get(i).CreateBlockHash()) ) ){
+            return false;
+         }
+
+         if(!chain.get(i).getHashString().equals(chain.get(i+1).getPreviousBlockHashString() ) ){
             return false;
          }
       }

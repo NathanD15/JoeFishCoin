@@ -1,0 +1,4 @@
+Proof of Work
+Transaction
+Signing
+Mining

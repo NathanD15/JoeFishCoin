@@ -19,7 +19,7 @@ class Hash {
         StringBuilder builder = new StringBuilder();
         int bit; 
         byte value;
-        for(int i = 0;i < hash.length;i++){
+        for(int i = 0; i < hash.length; i++){
             value = hash[i];
             bit = 0;
             for(int j = 0; j < 8; j++){

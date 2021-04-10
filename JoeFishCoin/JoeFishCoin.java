@@ -10,7 +10,7 @@ class JoeFishCoin {
         JoeFishCoin.addBlock( "3", 3 );
 
         System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(1).getHashString() );
-        System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(2).getPreviousBlockHashString() );
+        System.out.println("Hash :  " + Hash.toString(JoeFishCoin.getBlockAtIndex(1).CreateBlockHash()) );
         System.out.println("Valid:  " + JoeFishCoin.isValid() );
         //System.out.println("Hash :  " + JoeFishCoin.getBlockAtIndex(3).getHash() );
         //System.out.println("Hash :  " + JoeFishCoin.getLatestBlock().getHash() );

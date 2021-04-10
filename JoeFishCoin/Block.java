@@ -15,9 +15,9 @@ class Block {
    }
    
    Block(String h, byte[] p, int d) throws NoSuchAlgorithmException {
+      data = d;
       hash = this.CreateBlockHash();
       previousBlockHash = p;
-      data = d;
    }
 
    public byte[] CreateBlockHash(){

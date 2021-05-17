@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.security.NoSuchAlgorithmException; 
 
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
+import javax.crypto.Cipher;
+
 class Blockchain {
    private LinkedList<Block> chain;
    private ArrayList<Transaction> PindingTransactions;
@@ -40,7 +47,11 @@ class Blockchain {
 
 
 
-   public void addTransaction(String sender, String reciever, double amount ) throws NoSuchAlgorithmException{
+   public void addTransaction(PublicKey sender, PrivateKey key, PublicKey reciever, double amount ) throws Exception{
+      if( !asymmetric_encryption.descrypt(asymmetric_encryption.encrypt("Valid Key".getBytes(), sender), key).equals("Valid Key".getBytes() )){
+         return;
+      }
+
       PindingTransactions.add( new Transaction(sender, reciever, amount) );
    }
 
@@ -78,7 +89,11 @@ class Blockchain {
       return true;
    }
 
-   public double getBalance(String address){
+   public double getBalance(PublicKey address, PrivateKey key) throws Exception{
+      if( !asymmetric_encryption.descrypt(asymmetric_encryption.encrypt("Valid Key".getBytes(), address), key).equals("Valid Key".getBytes() )){
+         return 0;
+      }
+      
       double amount = 0;
       for(int i = 0; i < chain.size(); i++){
          for(int j = 0; j < chain.get(i).getTransactionLength(); j++){

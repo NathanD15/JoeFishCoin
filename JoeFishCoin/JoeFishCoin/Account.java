@@ -1,5 +1,8 @@
+package JoeFishCoin;
+
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
@@ -9,9 +12,9 @@ import javax.crypto.Cipher;
 class Account {
     String PublicName; 
     PrivateKey privateKey;
-    PublicKey publicKey;
+    private PublicKey publicKey;
 
-    Account(){
+    Account() throws NoSuchAlgorithmException{
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
@@ -20,9 +23,13 @@ class Account {
         PublicName = "";
     }
 
-    Account(String name){
-        Account();
+    Account(String name)throws NoSuchAlgorithmException{
+        this();
         PublicName = name;
+    }
+
+    PublicKey getPublicKey(){
+        return publicKey;
     }
 
 

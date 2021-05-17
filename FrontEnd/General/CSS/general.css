@@ -1,0 +1,36 @@
+*{
+    font-style: normal;
+}
+
+body{
+    height: 800px;
+
+    background: linear-gradient(170deg, rgba(0,212,255,1) 50%, rgba(9,9,121,1) 100%);
+
+
+}
+
+
+nav {
+    /*border-color: black;*/
+    
+    background: linear-gradient(140deg, #4d4d4f 50%, #8a8a8d 100%);
+    /*border-style: solid;
+    border-width: 1;*/
+    
+}
+
+#navBar {
+    border-color: black;
+    border-style: dashed;
+    border-width: 3px;
+    padding: 2px;
+}
+
+.navBarItem {
+    color: lightgray;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+}

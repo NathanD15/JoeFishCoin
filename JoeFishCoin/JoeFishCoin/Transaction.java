@@ -16,7 +16,6 @@ public class Transaction {
     private double amount;
     private Date date;
 
-
     public Transaction(PublicKey s, PublicKey r, double a) {
         sender = s;
         reciever = r;

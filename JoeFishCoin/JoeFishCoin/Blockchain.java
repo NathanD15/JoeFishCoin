@@ -11,14 +11,24 @@ import java.security.PublicKey;
 
 import javax.crypto.Cipher;
 
+
 class Blockchain {
    private LinkedList<Block> chain;
    private ArrayList<Transaction> PindingTransactions;
    private int difficulty;
-
+   private double miningReward;
+   /*private*/ PublicKey miningBank;
 
    Blockchain() throws NoSuchAlgorithmException{
+      KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+      keyPairGenerator.initialize(2048);
+      KeyPair keyPair = keyPairGenerator.generateKeyPair();
+      miningBank = keyPair.getPublic();
+      
       difficulty = 3;
+      miningReward = 1;
+
+
       PindingTransactions = new ArrayList<Transaction>(0);
       chain = new LinkedList<Block>();
       chain.add( createFirstBlock() );
@@ -48,13 +58,18 @@ class Blockchain {
 
 
    public void addTransaction(PublicKey sender, PrivateKey key, PublicKey reciever, double amount ) throws Exception{
-      if( !asymmetric_encryption.descrypt(asymmetric_encryption.encrypt("Valid Key".getBytes(), sender), key).equals("Valid Key".getBytes() )){
+      if( !asymmetric_encryption.isValidKey(sender, key) ){
          return;
       }
 
       PindingTransactions.add( new Transaction(sender, reciever, amount) );
    }
 
+   public void mine( PublicKey miner ) throws NoSuchAlgorithmException{
+      mine();
+
+      PindingTransactions.add( new Transaction(miningBank, miner, miningReward) );
+   }
 
    public void mine( ) throws NoSuchAlgorithmException{
       String testHash ="";
@@ -67,7 +82,6 @@ class Blockchain {
          MiningNum++;
 
          if(testHash.substring(0, difficulty).equals(key.substring(0, difficulty)) ){
-            //System.out.println(MiningNum);
             addBlock(MiningNum);
             break;
          }
@@ -90,7 +104,7 @@ class Blockchain {
    }
 
    public double getBalance(PublicKey address, PrivateKey key) throws Exception{
-      if( !asymmetric_encryption.descrypt(asymmetric_encryption.encrypt("Valid Key".getBytes(), address), key).equals("Valid Key".getBytes() )){
+      if( !asymmetric_encryption.isValidKey(address, key) ){
          return 0;
       }
       

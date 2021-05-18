@@ -40,4 +40,18 @@ class asymmetric_encryption
         return cipher.doFinal(encryptedData);
     }
 
+    public static boolean isValidKey(PublicKey publicKey, PrivateKey privateKey)throws Exception{
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        keyPairGenerator.initialize(2048);
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        PrivateKey privateK = keyPair.getPrivate();
+        PublicKey publicK = keyPair.getPublic();
+
+
+        String str1 = new String( descrypt( encrypt("Valid Key".getBytes(), publicKey) , privateKey) );
+        String str2 = new String( descrypt( encrypt("Valid Key".getBytes(), publicK) , privateK) );
+
+        return str1.equals(str2);
+    }
+
 }

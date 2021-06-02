@@ -17,7 +17,7 @@ class Blockchain {
    private ArrayList<Transaction> PindingTransactions;
    private int difficulty;
    private double miningReward;
-   /*private*/ PublicKey miningBank;
+   private PublicKey miningBank;
 
    Blockchain() throws NoSuchAlgorithmException{
       KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");

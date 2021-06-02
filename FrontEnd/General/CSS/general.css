@@ -10,13 +10,13 @@ body{
 
 }
 
-
+/*
 nav {
-    /*border-color: black;*/
+    /*border-color: black;/*
     
     background: linear-gradient(140deg, #4d4d4f 50%, #8a8a8d 100%);
     /*border-style: solid;
-    border-width: 1;*/
+    border-width: 1;/*
     
 }
 
@@ -33,4 +33,29 @@ nav {
     margin-right: 10px;
     text-decoration: none;
     display: inline-block;
+}
+*/
+
+.topnav {
+    background: linear-gradient(140deg, #4d4d4f 50%, #8a8a8d 100%);
+    overflow: hidden;
+}
+
+.topnav a{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 31px;
+}
+
+.topnav a:hover{
+    background-color: white;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: rgba(0,212,255,1);
+    color: black;
 }

@@ -15,11 +15,16 @@ class JoeFishCoin {
         JoeFishCoin.addTransaction(Joseph.getPublicKey(), Joseph.privateKey, Connor.getPublicKey(), 115);
         JoeFishCoin.mine(Nathan.getPublicKey());
         
-        System.out.println("\n"+ "IsValid :  "+ JoeFishCoin.isValid() + "\n\n");
+
+        System.out.println(Nathan.getPublicKey().getEncoded() );
+        System.out.println(Connor.getPublicKey().getEncoded() );
+        System.out.println(Joseph.getPublicKey().getEncoded() );
+        
+        /*System.out.println("\n"+ "IsValid :  "+ JoeFishCoin.isValid() + "\n\n");
         System.out.println("\n"+"Nathan :  "+ JoeFishCoin.getBalance(Nathan.getPublicKey(), Nathan.privateKey) );
         System.out.println(     "Joseph :  "+ JoeFishCoin.getBalance(Joseph.getPublicKey(), Joseph.privateKey) );
         System.out.println(     "Connor :  "+ JoeFishCoin.getBalance(Connor.getPublicKey(), Connor.privateKey) + "\n\n");
-        
+        */
     } 
     
 }
